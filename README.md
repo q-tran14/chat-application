@@ -1,11 +1,15 @@
 # chat-application
 ## Hướng dẫn clone và push project lên remote repo
 ### Cấu trúc thư mục:
-- FinalProject
---- chat-application
------- .git
------- ...
------- [file].sln
+--- + FinalProject
+  
+------ + chat-application
+
+--------- + .git
+
+--------- + ...
+
+--------- + [file].sln
 
 ### Các bước:
 #### Clone repo về và set up cho git trên local
