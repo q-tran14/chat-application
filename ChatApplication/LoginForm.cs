@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using ChatApplication.Ultilities;
 namespace ChatApplication
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : BaseForm
     {
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }

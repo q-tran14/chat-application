@@ -1,6 +1,6 @@
 ﻿namespace ChatApplication
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Location = new System.Drawing.Point(0, 0);
+            this.Name = "LoginForm";
+            this.Text = "LoginForm";
             this.ResumeLayout(false);
 
         }
@@ -45,4 +46,3 @@
         #endregion
     }
 }
-
