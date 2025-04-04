@@ -10,12 +10,8 @@ namespace ChatApplication.Ultilities
     {
         public BaseForm()
         {
-            this.FormBorderStyle = FormBorderStyle.None; // Ẩn viền
-            this.DoubleBuffered = true; // Chống flickering
-            this.BackColor = Color.Black; // Màu nền (bắt buộc có màu để hiệu ứng Blur hoạt động)
             EnableBlur();
         }
-
         #region UI CUSTOM
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -119,6 +115,7 @@ namespace ChatApplication.Ultilities
 
         [DllImport("user32.dll")]
         private static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
+        #endregion
 
         private void InitializeComponent()
         {
@@ -127,11 +124,11 @@ namespace ChatApplication.Ultilities
             // BaseForm
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 
         }
-        #endregion
     }
 }
