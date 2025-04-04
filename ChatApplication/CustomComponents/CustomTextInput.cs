@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
-namespace PiStoreManagementSystem.CustomComponents
+namespace ChatApplication.CustomComponents
 {
     [DefaultEvent("_TextChanged")]
     public partial class CustomTextInput : UserControl

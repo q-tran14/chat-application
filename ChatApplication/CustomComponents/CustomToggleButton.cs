@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PiStoreManagementSystem.CustomComponents
+namespace ChatApplication.CustomComponents
 {
     public class CustomToggleButton : PictureBox
     {

@@ -8,9 +8,9 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using PiStoreManagementSystem.Utils;
+using ChatApplication.Ultilities;
 
-namespace PiStoreManagementSystem.CustomComponents
+namespace ChatApplication.CustomComponents
 {
     public class CustomDatePicker: DateTimePicker
     {

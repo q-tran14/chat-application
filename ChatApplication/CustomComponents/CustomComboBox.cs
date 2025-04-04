@@ -10,7 +10,7 @@ using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Drawing.Design;
 
-namespace PiStoreManagementSystem.CustomComponents
+namespace ChatApplication.CustomComponents
 {
     [DefaultEvent("OnSelectedIndexChanged")]
     public class CustomComboBox : UserControl
