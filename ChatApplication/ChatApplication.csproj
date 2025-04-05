@@ -86,6 +86,11 @@
     <Compile Include="Ultilities\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ultilities\toastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ultilities\toastForm.Designer.cs" />
+    <Compile Include="Ultilities\ToastManager.cs" />
     <Compile Include="Ultilities\UtilityImage.cs" />
     <EmbeddedResource Include="CustomComponents\CustomComboBox.resx">
       <SubType>Designer</SubType>
@@ -113,6 +118,7 @@
     <EmbeddedResource Include="Ultilities\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ultilities\toastForm.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,6 +161,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

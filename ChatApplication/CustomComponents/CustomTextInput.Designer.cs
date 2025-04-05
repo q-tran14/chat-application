@@ -1,4 +1,4 @@
-﻿namespace ChatApplication.CustomComponents
+﻿namespace PiStoreManagementSystem.CustomComponents
 {
     partial class CustomTextInput
     {

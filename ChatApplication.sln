@@ -5,11 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApplication", "ChatApplication\ChatApplication.csproj", "{86F71D6D-68C4-4A93-A4EA-0673D0EF15BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{A8479DCD-7F90-42F5-8B11-7631E5D90D82}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{09284286-D1DA-406A-815F-5F7061858026}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppServer", "ChatAppServer\ChatAppServer.csproj", "{0F25191A-F0EC-4877-836C-D8EBC5602311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppServer", "ChatAppServer\ChatAppServer.csproj", "{0F25191A-F0EC-4877-836C-D8EBC5602311}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +17,6 @@ Global
 		{86F71D6D-68C4-4A93-A4EA-0673D0EF15BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F71D6D-68C4-4A93-A4EA-0673D0EF15BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F71D6D-68C4-4A93-A4EA-0673D0EF15BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8479DCD-7F90-42F5-8B11-7631E5D90D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8479DCD-7F90-42F5-8B11-7631E5D90D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8479DCD-7F90-42F5-8B11-7631E5D90D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8479DCD-7F90-42F5-8B11-7631E5D90D82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09284286-D1DA-406A-815F-5F7061858026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09284286-D1DA-406A-815F-5F7061858026}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09284286-D1DA-406A-815F-5F7061858026}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09284286-D1DA-406A-815F-5F7061858026}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F25191A-F0EC-4877-836C-D8EBC5602311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F25191A-F0EC-4877-836C-D8EBC5602311}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F25191A-F0EC-4877-836C-D8EBC5602311}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -19,7 +19,7 @@ namespace ChatApplication.CustomComponents
         private Color borderColor = Color.PaleVioletRed;
         private Color clickColor = Color.Gray;
         private Color originalBackColor; // Lưu màu nền gốc
-
+        private Color originalForeColor;
         //Properties
         [Category("Custom Button Advance")]
         public int BorderSize
@@ -159,11 +159,16 @@ namespace ChatApplication.CustomComponents
         {
             base.OnMouseDown(mevent);
             this.originalBackColor = this.BackColor; // Lưu màu gốc trước khi đổi
+            this.originalForeColor = this.ForeColor;
+            this.BackColor = this.ClickColor;
+            this.ForeColor = Color.White;
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
         {
             base.OnMouseUp(mevent);
+            this.BackColor = this.originalBackColor;
+            this.ForeColor = this.originalForeColor;
         }
 
         private void Container_BackColorChanged(object sender, EventArgs e)
