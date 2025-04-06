@@ -36,3 +36,9 @@
 6. Có conflict thì nhắn tin tui
 6. git push origin [MSSV]
 7. Lên github tạo pull request để merge branch [MSSV] vô master
+
+## Hướng dẫn chạy project
+1. Build toàn bộ project
+2. Chạy ChatApp.sql trong My SQL Server Management
+3. Chạy ChatAppServer.exe nằm trong đường dẫn (".\ChatApplication\ChatAppServer\bin\Debug\net6.0\ChatAppServer.exe")
+4. Chạy ChatApplication.exe
