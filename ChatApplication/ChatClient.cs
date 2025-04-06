@@ -9,51 +9,40 @@ namespace ChatApplication
     {
         private TcpClient _client;
         private NetworkStream _stream;
-        private string _username;
-        private Form1 _form;
 
-        public ChatClient(string serverIp, int port, string username, Form1 form)
-        {
-            _client = new TcpClient(serverIp, port);
-            _username = username;
-            _form = form;
-        }
+        public bool IsConnected => _client?.Connected ?? false;
 
-        public void Connect()
+        public void Connect(string ip, int port)
         {
+            _client = new TcpClient();
+            _client.Connect(ip, port);
             _stream = _client.GetStream();
-            byte[] nameData = Encoding.UTF8.GetBytes(_username);
-            _stream.Write(nameData, 0, nameData.Length);
-
-            Thread thread = new Thread(ReceiveMessages);
-            thread.IsBackground = true;
-            thread.Start();
         }
 
         public void SendMessage(string message)
         {
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            _stream.Write(data, 0, data.Length);
+            if (_stream != null)
+            {
+                byte[] data = Encoding.UTF8.GetBytes(message);
+                _stream.Write(data, 0, data.Length);
+            }
         }
 
-        private void ReceiveMessages()
+        public string ReceiveMessage()
         {
-            try
+            if (_stream != null)
             {
                 byte[] buffer = new byte[1024];
-                while (true)
-                {
-                    int bytesRead = _stream.Read(buffer, 0, buffer.Length);
-                    if (bytesRead == 0) break;
+                int bytesRead = _stream.Read(buffer, 0, buffer.Length);
+                return Encoding.UTF8.GetString(buffer, 0, bytesRead);
+            }
+            return null;
+        }
 
-                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    _form.AppendMessage(message);
-                }
-            }
-            catch (Exception)
-            {
-                _form.AppendMessage("Mất kết nối với server...");
-            }
+        public void Close()
+        {
+            _stream?.Close();
+            _client?.Close();
         }
     }
 }

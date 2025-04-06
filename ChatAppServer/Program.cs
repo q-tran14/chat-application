@@ -1,8 +1,10 @@
-﻿class Program
+﻿
+class Program
 {
     static void Main()
     {
-        Server server = new Server(12345);
+
+        Server server = new Server("127.0.0.1",12345);
         server.Start();
     }
 }

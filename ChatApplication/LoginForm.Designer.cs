@@ -43,11 +43,11 @@
             this.timerOverlay = new System.Windows.Forms.Timer(this.components);
             this.labRegister = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtbRegUsername = new PiStoreManagementSystem.CustomComponents.CustomTextInput();
-            this.txtbRegPass = new PiStoreManagementSystem.CustomComponents.CustomTextInput();
-            this.txtbRegConfPass = new PiStoreManagementSystem.CustomComponents.CustomTextInput();
-            this.btnRegister = new ChatApplication.CustomComponents.CustomButton();
             this.btnBack = new ChatApplication.CustomComponents.CustomButton();
+            this.btnRegister = new ChatApplication.CustomComponents.CustomButton();
+            this.txtbRegConfPass = new PiStoreManagementSystem.CustomComponents.CustomTextInput();
+            this.txtbRegPass = new PiStoreManagementSystem.CustomComponents.CustomTextInput();
+            this.txtbRegUsername = new PiStoreManagementSystem.CustomComponents.CustomTextInput();
             ((System.ComponentModel.ISupportInitialize)(this.overlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -124,9 +124,9 @@
             this.txtbPassword.Multiline = false;
             this.txtbPassword.Name = "txtbPassword";
             this.txtbPassword.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtbPassword.PasswordChar = false;
+            this.txtbPassword.PasswordChar = true;
             this.txtbPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtbPassword.PlaceholderText = "";
+            this.txtbPassword.PlaceholderText = "Your password";
             this.txtbPassword.Size = new System.Drawing.Size(265, 37);
             this.txtbPassword.TabIndex = 1;
             this.txtbPassword.Texts = "";
@@ -148,7 +148,7 @@
             this.txtbUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtbUsername.PasswordChar = false;
             this.txtbUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtbUsername.PlaceholderText = "";
+            this.txtbUsername.PlaceholderText = "Your username";
             this.txtbUsername.Size = new System.Drawing.Size(265, 37);
             this.txtbUsername.TabIndex = 0;
             this.txtbUsername.Texts = "";
@@ -238,71 +238,26 @@
             this.panel1.Size = new System.Drawing.Size(357, 400);
             this.panel1.TabIndex = 154;
             // 
-            // txtbRegUsername
+            // btnBack
             // 
-            this.txtbRegUsername.BackColor = System.Drawing.SystemColors.Window;
-            this.txtbRegUsername.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.txtbRegUsername.BorderFocusColor = System.Drawing.Color.Navy;
-            this.txtbRegUsername.BorderRadius = 5;
-            this.txtbRegUsername.BorderSize = 2;
-            this.txtbRegUsername.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbRegUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtbRegUsername.Location = new System.Drawing.Point(42, 138);
-            this.txtbRegUsername.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbRegUsername.Multiline = false;
-            this.txtbRegUsername.Name = "txtbRegUsername";
-            this.txtbRegUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtbRegUsername.PasswordChar = false;
-            this.txtbRegUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtbRegUsername.PlaceholderText = "Your username";
-            this.txtbRegUsername.Size = new System.Drawing.Size(281, 37);
-            this.txtbRegUsername.TabIndex = 154;
-            this.txtbRegUsername.Texts = "";
-            this.txtbRegUsername.UnderlinedStyle = false;
-            // 
-            // txtbRegPass
-            // 
-            this.txtbRegPass.BackColor = System.Drawing.SystemColors.Window;
-            this.txtbRegPass.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.txtbRegPass.BorderFocusColor = System.Drawing.Color.Navy;
-            this.txtbRegPass.BorderRadius = 5;
-            this.txtbRegPass.BorderSize = 2;
-            this.txtbRegPass.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbRegPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtbRegPass.Location = new System.Drawing.Point(42, 188);
-            this.txtbRegPass.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbRegPass.Multiline = false;
-            this.txtbRegPass.Name = "txtbRegPass";
-            this.txtbRegPass.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtbRegPass.PasswordChar = false;
-            this.txtbRegPass.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtbRegPass.PlaceholderText = "Your password";
-            this.txtbRegPass.Size = new System.Drawing.Size(281, 37);
-            this.txtbRegPass.TabIndex = 155;
-            this.txtbRegPass.Texts = "";
-            this.txtbRegPass.UnderlinedStyle = false;
-            // 
-            // txtbRegConfPass
-            // 
-            this.txtbRegConfPass.BackColor = System.Drawing.SystemColors.Window;
-            this.txtbRegConfPass.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.txtbRegConfPass.BorderFocusColor = System.Drawing.Color.Navy;
-            this.txtbRegConfPass.BorderRadius = 5;
-            this.txtbRegConfPass.BorderSize = 2;
-            this.txtbRegConfPass.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbRegConfPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtbRegConfPass.Location = new System.Drawing.Point(42, 236);
-            this.txtbRegConfPass.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbRegConfPass.Multiline = false;
-            this.txtbRegConfPass.Name = "txtbRegConfPass";
-            this.txtbRegConfPass.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtbRegConfPass.PasswordChar = false;
-            this.txtbRegConfPass.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtbRegConfPass.PlaceholderText = "Confirm your password";
-            this.txtbRegConfPass.Size = new System.Drawing.Size(281, 37);
-            this.txtbRegConfPass.TabIndex = 156;
-            this.txtbRegConfPass.Texts = "";
-            this.txtbRegConfPass.UnderlinedStyle = false;
+            this.btnBack.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnBack.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.btnBack.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnBack.BorderRadius = 5;
+            this.btnBack.BorderSize = 0;
+            this.btnBack.ClickColor = System.Drawing.Color.DarkBlue;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Californian FB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.Location = new System.Drawing.Point(205, 308);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(118, 40);
+            this.btnBack.TabIndex = 158;
+            this.btnBack.Text = "Back";
+            this.btnBack.TextColor = System.Drawing.Color.Black;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnRegister
             // 
@@ -325,26 +280,71 @@
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // btnBack
+            // txtbRegConfPass
             // 
-            this.btnBack.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnBack.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.btnBack.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnBack.BorderRadius = 5;
-            this.btnBack.BorderSize = 0;
-            this.btnBack.ClickColor = System.Drawing.Color.DarkBlue;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Californian FB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.Location = new System.Drawing.Point(205, 308);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(118, 40);
-            this.btnBack.TabIndex = 158;
-            this.btnBack.Text = "Back";
-            this.btnBack.TextColor = System.Drawing.Color.Black;
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.txtbRegConfPass.BackColor = System.Drawing.SystemColors.Window;
+            this.txtbRegConfPass.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.txtbRegConfPass.BorderFocusColor = System.Drawing.Color.Navy;
+            this.txtbRegConfPass.BorderRadius = 5;
+            this.txtbRegConfPass.BorderSize = 2;
+            this.txtbRegConfPass.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbRegConfPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtbRegConfPass.Location = new System.Drawing.Point(42, 236);
+            this.txtbRegConfPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbRegConfPass.Multiline = false;
+            this.txtbRegConfPass.Name = "txtbRegConfPass";
+            this.txtbRegConfPass.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtbRegConfPass.PasswordChar = true;
+            this.txtbRegConfPass.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtbRegConfPass.PlaceholderText = "Confirm your password";
+            this.txtbRegConfPass.Size = new System.Drawing.Size(281, 37);
+            this.txtbRegConfPass.TabIndex = 156;
+            this.txtbRegConfPass.Texts = "";
+            this.txtbRegConfPass.UnderlinedStyle = false;
+            // 
+            // txtbRegPass
+            // 
+            this.txtbRegPass.BackColor = System.Drawing.SystemColors.Window;
+            this.txtbRegPass.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.txtbRegPass.BorderFocusColor = System.Drawing.Color.Navy;
+            this.txtbRegPass.BorderRadius = 5;
+            this.txtbRegPass.BorderSize = 2;
+            this.txtbRegPass.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbRegPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtbRegPass.Location = new System.Drawing.Point(42, 188);
+            this.txtbRegPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbRegPass.Multiline = false;
+            this.txtbRegPass.Name = "txtbRegPass";
+            this.txtbRegPass.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtbRegPass.PasswordChar = true;
+            this.txtbRegPass.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtbRegPass.PlaceholderText = "Your password";
+            this.txtbRegPass.Size = new System.Drawing.Size(281, 37);
+            this.txtbRegPass.TabIndex = 155;
+            this.txtbRegPass.Texts = "";
+            this.txtbRegPass.UnderlinedStyle = false;
+            // 
+            // txtbRegUsername
+            // 
+            this.txtbRegUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.txtbRegUsername.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.txtbRegUsername.BorderFocusColor = System.Drawing.Color.Navy;
+            this.txtbRegUsername.BorderRadius = 5;
+            this.txtbRegUsername.BorderSize = 2;
+            this.txtbRegUsername.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbRegUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtbRegUsername.Location = new System.Drawing.Point(42, 138);
+            this.txtbRegUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbRegUsername.Multiline = false;
+            this.txtbRegUsername.Name = "txtbRegUsername";
+            this.txtbRegUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtbRegUsername.PasswordChar = false;
+            this.txtbRegUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtbRegUsername.PlaceholderText = "Your username";
+            this.txtbRegUsername.Size = new System.Drawing.Size(281, 37);
+            this.txtbRegUsername.TabIndex = 154;
+            this.txtbRegUsername.Texts = "";
+            this.txtbRegUsername.UnderlinedStyle = false;
             // 
             // LoginForm
             // 

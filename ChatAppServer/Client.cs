@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Net.Sockets;
 using System.Text;
 
@@ -8,6 +9,7 @@ class Client
     private Server _server;
     private NetworkStream _stream;
     private string _clientName;
+    private UserBL _userBL; // Đối tượng UserBL
 
     public Client(TcpClient client, Server server)
     {
@@ -21,19 +23,67 @@ class Client
         try
         {
             byte[] buffer = new byte[1024];
-            int bytesRead = _stream.Read(buffer, 0, buffer.Length);
-            _clientName = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
-            Console.WriteLine($"{_clientName} joined the chat.");
+            int bytesRead;
 
+            // Gửi yêu cầu đăng nhập hoặc đăng ký
+            while (true)
+            {
+                bytesRead = _stream.Read(buffer, 0, buffer.Length);
+                if (bytesRead == 0) break;
+
+                string request = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                string[] requestParts = request.Split('|');
+
+                string command = requestParts[0];
+                if (command == "LOGIN")
+                {
+                    string username = requestParts[1];
+                    string password = requestParts[2];
+                    _userBL = _server.AuthenticateLogin(username, password); // Nhận đối tượng UserBL khi đăng nhập thành công
+                    if (_userBL != null)
+                    {
+                        _clientName = username;
+                        SendMessage($"LOGIN SUCCESS|{_userBL.GetUserO()._UserID}|{_userBL.GetUserO()._Username}");
+                        Console.WriteLine($"{_clientName} logged in successfully.");
+                        break;
+                    }
+                    else
+                    {
+                        SendMessage("LOGIN FAILED");
+                        Console.WriteLine("Login failed.");
+                    }
+                }
+                else if (command == "REGISTER")
+                {
+                    string username = requestParts[1];
+                    string password = requestParts[2];
+                    bool success = _server.RegisterUser(username, password);
+                    //Console.WriteLine("(Client.cs) Register status: " + success);
+                    if (success)
+                    {
+                        _clientName = username;
+                        SendMessage("REGISTER SUCCESS");
+                        Console.WriteLine($"{_clientName} registered successfully.");
+                    }
+                    else
+                    {
+                        SendMessage("REGISTER FAILED");
+                        Console.WriteLine("Registration failed.");
+                    }
+                }
+            }
+
+            // Sau khi đăng nhập thành công, bắt đầu giao tiếp chat
             while (true)
             {
                 bytesRead = _stream.Read(buffer, 0, buffer.Length);
                 if (bytesRead == 0) break;
 
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                Console.WriteLine($"{_clientName}: {message}");
+                string[] requestParts = message.Split('|');
 
-                _server.Broadcast($"{_clientName}: {message}", this);
+                string command = requestParts[0];
+                //
             }
         }
         catch (Exception)

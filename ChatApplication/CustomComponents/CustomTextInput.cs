@@ -38,6 +38,7 @@ namespace PiStoreManagementSystem.CustomComponents
         {
             //Created by designer
             InitializeComponent();
+            SetPlaceholder();
         }
 
         #region -> Properties
@@ -343,7 +344,6 @@ namespace PiStoreManagementSystem.CustomComponents
             this.Invalidate();
             SetPlaceholder();
         }
-
         private void SetPlaceholder()
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) && placeholderText != "") // text rỗng
@@ -351,15 +351,15 @@ namespace PiStoreManagementSystem.CustomComponents
                 isPlaceholder = true;
                 textBox1.Text = placeholderText;
                 textBox1.ForeColor = placeholderColor;
-                if (isPasswordChar)
+                if (isPasswordChar && isPlaceholder)
                     textBox1.UseSystemPasswordChar = false;
             }
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && textBox1.Text != placeholderText)
             {
                 isPlaceholder = false;
                 textBox1.ForeColor = this.ForeColor;
-                if (isPasswordChar)
-                    textBox1.UseSystemPasswordChar = false;
+                if (isPasswordChar && !isPlaceholder)
+                    textBox1.UseSystemPasswordChar = isPasswordChar;
             }
 
         }
@@ -371,8 +371,7 @@ namespace PiStoreManagementSystem.CustomComponents
                 isPlaceholder = false;
                 textBox1.Text = "";
                 textBox1.ForeColor = this.ForeColor;
-                if (isPasswordChar)
-                    textBox1.UseSystemPasswordChar = true;
+                if (isPasswordChar) textBox1.UseSystemPasswordChar = true;
             }
         }
 

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 using ChatApplication.Ultilities;
 using ChatApplication.CustomComponents;
+using BLL;
 
 namespace ChatApplication
 {
@@ -22,6 +23,9 @@ namespace ChatApplication
         public LoginForm()
         {
             InitializeComponent();
+            txtbPassword.PasswordChar = true;
+            txtbRegPass.PasswordChar = true;
+            txtbRegConfPass.PasswordChar = true;
         }
 
         #region UI CUSTOM
@@ -44,12 +48,6 @@ namespace ChatApplication
             }
         }
         #endregion
-
-        private void moveOverlay()
-        {
-           _loginOrRegister = !_loginOrRegister;
-            timerOverlay.Start();
-        }
         private void LoginForm_Load(object sender, EventArgs e)
         {
             txtbUsername.KeyPress += textBox_KeyPress;
@@ -59,8 +57,15 @@ namespace ChatApplication
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             string username = txtbUsername.Texts;
-            string password = txtbPassword.Texts;
-            if (true)
+            string password = UserBL.HashPassword(txtbPassword.Texts.Trim());
+
+            if (!Program.chatClient.IsConnected)
+            {
+                ToastManager.ShowToastNotification("Error", "Not connected to server.", "error", this);
+                return;
+            }
+
+            if (validateAccount(username, password) == false)
             {
                 ToastManager.ShowToastNotification("Login Error", "Incorrect username or password!", "error", this);
                 return;
@@ -71,13 +76,61 @@ namespace ChatApplication
             this.Hide(); // Hide the login form
 
             // Khi mainForm đóng, thoát ứng dụng
-            main.FormClosed += (s, args) => this.Show();
+            main.FormClosed += (s, args) => this.Close();
         }
 
-        private void validateAccount(string username, string password)
+        private bool validateAccount(string username, string password)
         {
-            // Account Validation
+            string request = $"LOGIN|{username}|{password}";
+            Program.chatClient.SendMessage(request);
+
+            string response = Program.chatClient.ReceiveMessage();
+            if (response.StartsWith("LOGIN SUCCESS"))
+            {
+                string[] parts = response.Split('|');
+                int userId = int.Parse(parts[1]);
+                string usernameReturned = parts[2];
+
+                return true;
+            }
+            return false;
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            if (_loginOrRegister == false && _forgotPass)
+            {
+                // // Handle Update Password
+            }
+            else
+            {
+                string username = txtbRegUsername.Texts.Trim();
+                string password = UserBL.HashPassword(txtbRegConfPass.Texts.Trim());
+
+                if (!Program.chatClient.IsConnected)
+                {
+                    ToastManager.ShowToastNotification("Error", "Not connected to server.", "error", this);
+                    return;
+                }
+                if (txtbRegPass.Texts != txtbRegConfPass.Texts) return;
+
+                string request = $"REGISTER|{username}|{password}";
+                Program.chatClient.SendMessage(request);
+
+                string response = Program.chatClient.ReceiveMessage();
+
+                if (response == "REGISTER SUCCESS")
+                {
+                    ToastManager.ShowToastNotification("Success", "Registration successful!", "success", this);
+                    btnBack_Click(sender, EventArgs.Empty); // Quay lại giao diện đăng nhập
+                }
+                else
+                {
+                    ToastManager.ShowToastNotification("Error", "Username already exists!", "error", this);
+                }
+            }
+        }
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             moveOverlay();
@@ -122,7 +175,7 @@ namespace ChatApplication
         {
             int currentX = overlay.Location.X;
             int step = 35;
-            if (!_loginOrRegister)
+            if (_loginOrRegister == false)
             {
                 if (currentX < 385)
                 {
@@ -150,14 +203,24 @@ namespace ChatApplication
             if (currentX == -305 && _forgotPass == false) RegisterOrForgotPassword();
         }
 
+        private void moveOverlay()
+        {
+            _loginOrRegister = !_loginOrRegister;
+            timerOverlay.Start();
+        }
         private void btnBack_Click(object sender, EventArgs e)
         {
+            
             _forgotPass = false;
             moveOverlay();
+            txtbRegConfPass.Leave -= txtbRegConfPass_Leave;
         }
 
         private void RegisterOrForgotPassword()
         {
+
+            txtbRegUsername.PlaceholderText = "Your username";
+            txtbRegPass.PlaceholderText = "Your password";
             if (_loginOrRegister == false && _forgotPass)
             {
                 labRegister.Text = "Change Password";
@@ -169,21 +232,18 @@ namespace ChatApplication
                 labRegister.Text = "Register";
                 btnRegister.Text = "Register";
                 txtbRegConfPass.PlaceholderText = "Confirm your password";
+                txtbRegConfPass.Leave += txtbRegConfPass_Leave;
             }
             labRegister.Location = new Point(panel1.Width / 2 - labRegister.Width / 2, 47);
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void txtbRegConfPass_Leave(object sender, EventArgs e)
         {
-            if (_loginOrRegister == false && _forgotPass)
+            if (txtbRegPass.Texts != txtbRegConfPass.Texts)
             {
-                // Update Password
-            }
-            else
-            {
-                // Register Account
-            }
-            btnBack_Click(sender, EventArgs.Empty);
+                txtbRegConfPass.BorderColor = Color.Tomato;
+                ToastManager.ShowToastNotification("Error", "Password and Confirm Password not matched", "error", this);
+            }else txtbRegConfPass.BorderColor = Color.LightSteelBlue;
         }
     }
 }
