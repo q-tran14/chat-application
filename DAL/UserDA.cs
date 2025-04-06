@@ -39,14 +39,14 @@ namespace DAL
 
         public void UpdateUser()
         {
-            string query = "UPDATE Users SET Username = @Username, PasswordHash = @PasswordHash, AvatarImage = @AvatarImage, CreatedAt = @CreatedAt WHERE UserID = @UserID";
+            string query = "UPDATE Users SET PasswordHash = @PasswordHash, AvatarImage = @AvatarImage, CreatedAt = @CreatedAt WHERE  Username = @Username";
+            byte[] avatarImageBytes = user._AvatarImage ?? null;
             SqlParameter[] parameters =
             {
                 new SqlParameter("@Username", user._Username),
                 new SqlParameter("@PasswordHash", user._PasswordHash),
-                new SqlParameter("@AvatarImage", (object)user._AvatarImage ?? DBNull.Value),
+                new SqlParameter("@AvatarImage", avatarImageBytes == null ? new byte[0] : (object)avatarImageBytes),
                 new SqlParameter("@CreatedAt", user._CreatedAt),
-                new SqlParameter("@UserID", user._UserID)
             };
             UtilitiesDatabase.Instance.ExecuteNonQuery(query, parameters);
         }

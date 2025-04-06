@@ -99,6 +99,7 @@
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
             this.closeBtn.BackgroundImage = global::ChatApplication.Properties.Resources.reject;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeBtn.FlatAppearance.BorderSize = 0;
             this.closeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.closeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
@@ -117,6 +118,7 @@
             this.txtbPassword.BorderFocusColor = System.Drawing.Color.Navy;
             this.txtbPassword.BorderRadius = 5;
             this.txtbPassword.BorderSize = 2;
+            this.txtbPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtbPassword.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtbPassword.Location = new System.Drawing.Point(527, 262);
@@ -139,6 +141,7 @@
             this.txtbUsername.BorderFocusColor = System.Drawing.Color.Navy;
             this.txtbUsername.BorderRadius = 5;
             this.txtbUsername.BorderSize = 2;
+            this.txtbUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtbUsername.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtbUsername.Location = new System.Drawing.Point(527, 212);
@@ -201,6 +204,7 @@
             // labForgotPass
             // 
             this.labForgotPass.AutoSize = true;
+            this.labForgotPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labForgotPass.Font = new System.Drawing.Font("Cambria", 12F);
             this.labForgotPass.Location = new System.Drawing.Point(574, 380);
             this.labForgotPass.Name = "labForgotPass";
@@ -246,6 +250,7 @@
             this.btnBack.BorderRadius = 5;
             this.btnBack.BorderSize = 0;
             this.btnBack.ClickColor = System.Drawing.Color.DarkBlue;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Californian FB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,6 +272,7 @@
             this.btnRegister.BorderRadius = 5;
             this.btnRegister.BorderSize = 0;
             this.btnRegister.ClickColor = System.Drawing.Color.DarkBlue;
+            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Californian FB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,6 +293,7 @@
             this.txtbRegConfPass.BorderFocusColor = System.Drawing.Color.Navy;
             this.txtbRegConfPass.BorderRadius = 5;
             this.txtbRegConfPass.BorderSize = 2;
+            this.txtbRegConfPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtbRegConfPass.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbRegConfPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtbRegConfPass.Location = new System.Drawing.Point(42, 236);
@@ -309,6 +316,7 @@
             this.txtbRegPass.BorderFocusColor = System.Drawing.Color.Navy;
             this.txtbRegPass.BorderRadius = 5;
             this.txtbRegPass.BorderSize = 2;
+            this.txtbRegPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtbRegPass.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbRegPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtbRegPass.Location = new System.Drawing.Point(42, 188);
@@ -331,6 +339,7 @@
             this.txtbRegUsername.BorderFocusColor = System.Drawing.Color.Navy;
             this.txtbRegUsername.BorderRadius = 5;
             this.txtbRegUsername.BorderSize = 2;
+            this.txtbRegUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtbRegUsername.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbRegUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtbRegUsername.Location = new System.Drawing.Point(42, 138);

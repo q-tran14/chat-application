@@ -76,7 +76,7 @@ namespace ChatApplication
             this.Hide(); // Hide the login form
 
             // Khi mainForm đóng, thoát ứng dụng
-            main.FormClosed += (s, args) => this.Close();
+            main.FormClosed += (s, args) => this.Show();
         }
 
         private bool validateAccount(string username, string password)
@@ -85,12 +85,13 @@ namespace ChatApplication
             Program.chatClient.SendMessage(request);
 
             string response = Program.chatClient.ReceiveMessage();
+            Console.WriteLine(response);
             if (response.StartsWith("LOGIN SUCCESS"))
             {
                 string[] parts = response.Split('|');
                 int userId = int.Parse(parts[1]);
                 string usernameReturned = parts[2];
-
+                //
                 return true;
             }
             return false;
@@ -100,7 +101,30 @@ namespace ChatApplication
         {
             if (_loginOrRegister == false && _forgotPass)
             {
-                // // Handle Update Password
+                string username = txtbRegUsername.Texts.Trim();
+                string password = UserBL.HashPassword(txtbRegConfPass.Texts.Trim());
+
+                if (!Program.chatClient.IsConnected)
+                {
+                    ToastManager.ShowToastNotification("Error", "Not connected to server.", "error", this);
+                    return;
+                }
+                if (txtbRegPass.Texts != txtbRegConfPass.Texts) return;
+
+                string request = $"CHANGE_PASSWORD|{username}|{password}";
+                Program.chatClient.SendMessage(request);
+
+                string response = Program.chatClient.ReceiveMessage();
+
+                if (response == "CHANGE SUCCESS")
+                {
+                    ToastManager.ShowToastNotification("Success", "Change password successful!", "success", this);
+                    btnBack_Click(sender, EventArgs.Empty); // Quay lại giao diện đăng nhập
+                }
+                else
+                {
+                    ToastManager.ShowToastNotification("Error", "Username not exists!", "error", this);
+                }
             }
             else
             {

@@ -53,12 +53,12 @@ namespace DAL
             return UtilitiesDatabase.Instance.ExecuteQuery(query, parameters);
         }
 
-        public DataTable GetMessagesByReceiverID()
+        public DataTable GetMessagesBySenderID()
         {
-            string query = "SELECT * FROM Messages WHERE ReceiverID = @ReceiverID";
+            string query = "SELECT * FROM Messages WHERE SenderID = @SenderID";
             SqlParameter[] parameters =
             {
-                new SqlParameter("@ReceiverID", message._ReceiverID)
+                new SqlParameter("@SenderID", message._SenderID)
             };
             return UtilitiesDatabase.Instance.ExecuteQuery(query, parameters);
         }

@@ -10,9 +10,12 @@ namespace ChatApplication
         private TcpClient _client;
         private NetworkStream _stream;
 
+        private string ip = "127.0.0.1";
+        private int port = 12345;
+
         public bool IsConnected => _client?.Connected ?? false;
 
-        public void Connect(string ip, int port)
+        public void Connect()
         {
             _client = new TcpClient();
             _client.Connect(ip, port);

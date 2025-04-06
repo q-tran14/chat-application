@@ -71,7 +71,26 @@ class Client
                         Console.WriteLine("Registration failed.");
                     }
                 }
+                else if (command == "CHANGE_PASSWORD")
+                {
+                    string username = requestParts[1];
+                    string password = requestParts[2];
+                    bool success = _server.ChangePassword(username, password);
+                    if (success)
+                    {
+                        _clientName = username;
+                        SendMessage("CHANGE SUCCESS");
+                        Console.WriteLine($"{_clientName} change password successfully.");
+                    }
+                    else
+                    {
+                        SendMessage("CHANGE PASSWORD FAILED");
+                        Console.WriteLine("Change password failed.");
+                    }
+                }
             }
+
+            // Get all message
 
             // Sau khi đăng nhập thành công, bắt đầu giao tiếp chat
             while (true)
@@ -83,7 +102,20 @@ class Client
                 string[] requestParts = message.Split('|');
 
                 string command = requestParts[0];
-                //
+                string senderID = requestParts[1];
+                string content = requestParts[3];
+                // handle chat (private chat and group chat)
+                if (command == "GROUPMSG") // GROUPMSG|senderID|groupID|content
+                {
+                    string groupID = requestParts[2];
+                    
+                    // Làm gì đó ở đây
+                }
+                else if (command == "PRIVMSG") // PRIVMSG|senderID|receiverID|content
+                {
+                    string receiverID = requestParts[2];
+                    // Làm gì đó ở đây
+                }
             }
         }
         catch (Exception)

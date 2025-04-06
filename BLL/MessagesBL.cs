@@ -28,9 +28,9 @@ namespace BLL
             return messagesDA.GetMessagesByGroupID();
         }
 
-        public DataTable GetMessagesByReceiverID()
+        public DataTable GetMessagesBySenderID()
         {
-            return messagesDA.GetMessagesByReceiverID();
+            return messagesDA.GetMessagesBySenderID();
         }
     }
 }

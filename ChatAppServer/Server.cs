@@ -81,13 +81,33 @@ class Server
         // Thêm người dùng mới vào cơ sở dữ liệu
         string pass = UserBL.HashPassword(username + password); 
         _userBL = new UserBL(0, username, pass, null, DateTime.Now); // Tạo người dùng mới
-        Console.WriteLine($"{pass}");
         _userBL.AddUser(); // Lưu người dùng vào database
         return true;
     }
 
-    public void Broadcast(string message, Client sender)
+    public bool ChangePassword(string username, string password)
     {
+        // Kiểm tra xem người dùng đã tồn tại chưa
+        DataTable userTable = _userBL.GetAllUsers();
+        foreach (DataRow row in userTable.Rows)
+        {
+            if (row["Username"].ToString() == username)
+            {
+                
+                // Thêm người dùng mới vào cơ sở dữ liệu
+                string pass = UserBL.HashPassword(username + password);
+                _userBL = new UserBL(0, username, pass, null, DateTime.Now); // Tạo người dùng mới
+                _userBL.UpdateUser(); // Lưu người dùng vào database
+                return true;
+            }
+        }
+        return false; // Người dùng không tồn tại
+
+    }
+
+    public void BroadcastGroup(string message, Client sender)
+    {
+        // Gửi đến các client trong group
         lock (_lock)
         {
             foreach (var client in _clients)
@@ -98,6 +118,16 @@ class Server
                 }
             }
         }
+    }
+
+    public void SendToClient(string message, Client sender)
+    {
+        // Gửi đến client khác
+    }
+
+    public void GetAllMessageOfClient(Client sender)
+    {
+
     }
 
     public void RemoveClient(Client client)

@@ -63,6 +63,18 @@
     <Compile Include="CustomComponents\CustomToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomComponents\ChatBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomComponents\ChatBox.Designer.cs">
+      <DependentUpon>ChatBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomComponents\MessageBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomComponents\MessageBox.Designer.cs">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,10 +98,16 @@
     <Compile Include="Ultilities\toastForm.Designer.cs" />
     <Compile Include="Ultilities\ToastManager.cs" />
     <Compile Include="Ultilities\UtilityImage.cs" />
+    <EmbeddedResource Include="CustomComponents\ChatBox.resx">
+      <DependentUpon>ChatBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomComponents\CustomComboBox.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomComponents\CustomTextInput.resx" />
+    <EmbeddedResource Include="CustomComponents\MessageBox.resx">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +185,9 @@
       <Project>{503936a4-45b4-4edf-9a90-134b7f915bd3}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reject-gradient.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
